@@ -7,19 +7,45 @@ CRISP-DM Framework
 To frame the task, throughout our practical applications, we will refer back to a standard process in industry for data projects called CRISP-DM. This process provides a framework for working through a data problem. Your first step in this application will be to read through a brief overview of CRISP-DM here. After reading the overview, answer the questions below.
 
 Business Understanding
-From a business perspective, we are tasked with identifying key drivers for used car prices. In the CRISP-DM overview, we are asked to convert this business framing to a data problem definition. Using a few sentences, reframe the task as a data task with the appropriate technical vocabulary.
+
+I would like to determine what factors make a car more or less expensive. I would like to understand pricing drivers in the used car market. I will be identifying statistical significant factors that influence vehicle prices.
 
 Data Understanding
-After considering the business understanding, we want to get familiar with our data. Write down some steps that you would take to get to know the dataset and identify any quality issues within. Take time to get to know the dataset and explore what information it contains and how this could be used to inform your business understanding.
+
+I loaded vehicles.csv dataset and explored dataset structure. I identified data types (numerical: year, odometer, price. categorical: manufacturer, condition, etc.) I have both numerical and categorical variables that could influence price.
 
 Data Preparation
-After our initial exploration and fine-tuning of the business understanding, it is time to construct our final dataset prior to modeling. Here, we want to make sure to handle any integrity issues and cleaning, the engineering of new features, any transformations that we believe should happen (scaling, logarithms, normalization, etc.), and general preparation for modeling with sklearn.
+
+I implemenented data cleaning which filtered out unrealistic prices anything < $500 or > $100,000. I removed extreme values that could skew analysis. I used .dropna() for correlation calculations and focus on relevant colums for price analysis. I used minimum sample sizes of 100+ listings for meaningful analysis.
 
 Modeling
-With your (almost?) final dataset in hand, it is now time to build some models. Here, you should build a number of different regression models with the price as the target. In building your models, you should explore different parameters and be sure to cross-validate your findings.
+
+The visualization models are scatter plots, box plots to reveal patterns. I did a comparative analysis of the price distribution across different categories. I did descriptive staticstics by analysis for categorical variables.
 
 Evaluation
-With some modeling accomplished, we aim to reflect on what we identify as a high-quality model and what we are able to learn from this. We should review our business objective and explore how well we can provide meaningful insight into drivers of used car prices. Your goal now is to distill your findings and determine whether the earlier phases need revisitation and adjustment or if you have information of value to bring back to your client.
+
+In my evaluation, I asked myself the question, does the findings make practical sense? Can any stakeholder use this information to make a decision?
 
 Deployment
-Now that we've settled on our models and findings, it is time to deliver the information to the client. You should organize your work as a basic report that details your primary findings. Keep in mind that your audience is a group of used car dealers interested in fine-tuning their inventory.
+
+See below for report.
+
+Factors that INCREASE car prices:
+
+Newer model year - Strong positive correlation with price
+Lower mileage - Cars with fewer miles command higher prices
+Better condition - New/Like New vehicles are significantly more expensive
+Luxury manufacturers - Premium brands (Mercedes, BMW, Audi) vs economy brands
+Vehicle type - Sports cars, luxury SUVs, and trucks often more expensive
+Larger engines - More cylinders typically correlate with higher prices
+Advanced fuel systems - Hybrid and diesel vehicles often carry premiums
+
+Factors that DECREASE car prices:
+
+High mileage - Strong negative correlation
+Older age - Depreciation over time
+Poor condition - Salvage, fair condition significantly reduce value
+Economy manufacturers - Budget brands vs luxury brands
+Smaller engines - Fewer cylinders, smaller displacement
+Basic features - Manual transmission, basic trim levels
+
